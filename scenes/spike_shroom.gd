@@ -30,6 +30,7 @@ func _ready():
 	
 
 func _physics_process(delta):
+	gravity.apply_gravity(self, delta)
 	handle_vision()
 	track_player()
 	handle_movement()
