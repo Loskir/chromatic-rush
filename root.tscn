@@ -19,6 +19,7 @@ size = Vector2(91.5, 692)
 
 [node name="Player" parent="." instance=ExtResource("1_tgpkk")]
 position = Vector2(129, 595)
+scale = Vector2(1.5, 1.5)
 
 [node name="platform" parent="." instance=ExtResource("2_fp0qo")]
 position = Vector2(698, 561)
@@ -48,16 +49,16 @@ position = Vector2(1209, 310)
 shape = SubResource("RectangleShape2D_s8qci")
 
 [node name="platform2" parent="." instance=ExtResource("2_fp0qo")]
-position = Vector2(283, 464)
+position = Vector2(243, 436)
 
 [node name="platform3" parent="." instance=ExtResource("2_fp0qo")]
-position = Vector2(891, 381)
+position = Vector2(867, 472)
 
 [node name="platform4" parent="." instance=ExtResource("2_fp0qo")]
-position = Vector2(727, 286)
+position = Vector2(1179, 383)
 
 [node name="platform5" parent="." instance=ExtResource("2_fp0qo")]
-position = Vector2(63, 288)
+position = Vector2(619, 282)
 
 [node name="platform6" parent="." instance=ExtResource("2_fp0qo")]
-position = Vector2(-37, 197)
+position = Vector2(3, 216)
