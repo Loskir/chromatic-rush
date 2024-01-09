@@ -1,19 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://8eh68chbqval"]
+[gd_scene load_steps=4 format=3 uid="uid://8eh68chbqval"]
 
 [ext_resource type="PackedScene" uid="uid://cad20yjrg01yc" path="res://scenes/player.tscn" id="1_tgpkk"]
 [ext_resource type="PackedScene" uid="uid://ch5kdeilvmhr" path="res://platform.tscn" id="2_fp0qo"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_umfgq"]
-size = Vector2(1188, 125.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_affb8"]
-size = Vector2(146, 1137)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebk6q"]
-size = Vector2(1256.5, 119)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8qci"]
-size = Vector2(91.5, 692)
+[ext_resource type="PackedScene" uid="uid://cmmgrb10i0cxy" path="res://tile_map.tscn" id="3_itvik"]
 
 [node name="Node" type="Node"]
 
@@ -23,30 +12,6 @@ scale = Vector2(1.5, 1.5)
 
 [node name="platform" parent="." instance=ExtResource("2_fp0qo")]
 position = Vector2(698, 561)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(574, 709.25)
-shape = SubResource("RectangleShape2D_umfgq")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(-75, 450.5)
-shape = SubResource("RectangleShape2D_affb8")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(564.75, -59.5)
-shape = SubResource("RectangleShape2D_ebk6q")
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(1209, 310)
-shape = SubResource("RectangleShape2D_s8qci")
 
 [node name="platform2" parent="." instance=ExtResource("2_fp0qo")]
 position = Vector2(243, 436)
@@ -62,3 +27,5 @@ position = Vector2(619, 282)
 
 [node name="platform6" parent="." instance=ExtResource("2_fp0qo")]
 position = Vector2(3, 216)
+
+[node name="TileMap" parent="." instance=ExtResource("3_itvik")]
