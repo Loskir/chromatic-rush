@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb0a2axmmr80b"]
+
+[ext_resource type="Texture2D" uid="uid://1yn3bthediqs" path="res://enemy.png" id="1_3nml4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1smb"]
+size = Vector2(29.6875, 34)
+
+[node name="Enemy" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2.38419e-07)
+scale = Vector2(0.186523, 0.174805)
+texture = ExtResource("1_3nml4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_p1smb")
+
+[node name="Wall_Checks" type="Node2D" parent="."]
+
+[node name="Wall_RayCast_Left" type="RayCast2D" parent="Wall_Checks"]
+rotation = 1.56375
+target_position = Vector2(-0.296122, 41.999)
+
+[node name="Wall_RayCast_Right" type="RayCast2D" parent="Wall_Checks"]
+target_position = Vector2(40, 0)
+
+[node name="Floor_Checks" type="Node2D" parent="."]
+
+[node name="Floor_RayCast_Left" type="RayCast2D" parent="Floor_Checks"]
+position = Vector2(-20, -3.71378e-09)
+rotation = -0.00496685
+target_position = Vector2(-0.134104, 26.9997)
+
+[node name="Floor_RayCast_Right" type="RayCast2D" parent="Floor_Checks"]
+position = Vector2(18, 0)
+target_position = Vector2(0, 27)
+
+[node name="Player_Tracker_Pivot" type="Node2D" parent="."]
+
+[node name="Player_Track_RayCast" type="RayCast2D" parent="Player_Tracker_Pivot"]
+rotation = -1.57524
+target_position = Vector2(-0.444713, 99.999)
+
+[node name="Chase_Timer" type="Timer" parent="."]

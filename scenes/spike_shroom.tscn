@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://mu75owa37vq"]
+
+[ext_resource type="PackedScene" uid="uid://bb0a2axmmr80b" path="res://scenes/enemy.tscn" id="1_fxlfm"]
+[ext_resource type="Script" path="res://scenes/spike_shroom.gd" id="2_jlshq"]
+
+[node name="Spike_Shroom" instance=ExtResource("1_fxlfm")]
+script = ExtResource("2_jlshq")
