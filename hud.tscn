@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ph0d3oo14cfp"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_1nmlg"]
+
+[sub_resource type="GDScript" id="GDScript_cra40"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_1nmlg")
+
+[node name="CurrentLevel" type="Label" parent="."]
+offset_left = 18.0
+offset_top = 17.0
+offset_right = 68.0
+offset_bottom = 43.0
+text = "level 2"
+script = SubResource("GDScript_cra40")

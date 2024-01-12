@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://dcs57nyl3hc0u"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_uout0"]
+[ext_resource type="Texture2D" uid="uid://d22xdy02ndj6f" path="res://monochrome_tilemap_transparent.png" id="2_7ra6h"]
+[ext_resource type="AudioStream" uid="uid://jwxhheher6l7" path="res://jump.wav" id="3_4i3td"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwfmh"]
+atlas = ExtResource("2_7ra6h")
+region = Rect2(0, 204, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4htsu"]
+atlas = ExtResource("2_7ra6h")
+region = Rect2(68, 204, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjfeq"]
+atlas = ExtResource("2_7ra6h")
+region = Rect2(17, 204, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01q2h"]
+atlas = ExtResource("2_7ra6h")
+region = Rect2(34, 204, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb3kj"]
+atlas = ExtResource("2_7ra6h")
+region = Rect2(51, 204, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uai10"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwfmh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4htsu")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjfeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01q2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb3kj")
+}],
+"loop": true,
+"name": &"run",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rbb4o"]
+radius = 3.0
+height = 8.0
+
+[node name="player" type="CharacterBody2D"]
+position = Vector2(-140, -103)
+script = ExtResource("1_uout0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(139, 102)
+zoom = Vector2(3, 3)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(140, 100)
+sprite_frames = SubResource("SpriteFrames_uai10")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(140, 104)
+shape = SubResource("CapsuleShape2D_rbb4o")
+
+[node name="JumpEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4i3td")
+volume_db = -2.0

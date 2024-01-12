@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbccs1ic5yk2w"]
+
+[ext_resource type="Script" path="res://gem.gd" id="1_jn4j0"]
+[ext_resource type="Texture2D" uid="uid://d22xdy02ndj6f" path="res://monochrome_tilemap_transparent.png" id="1_u6yvy"]
+[ext_resource type="AudioStream" uid="uid://b1qo6gpf6713x" path="res://pickupCoin.wav" id="3_rjje3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqyew"]
+size = Vector2(8, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p2td"]
+atlas = ExtResource("1_u6yvy")
+region = Rect2(34, 85, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6fjag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p2td")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Gem" type="Area2D"]
+script = ExtResource("1_jn4j0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xqyew")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_6fjag")
+
+[node name="CoinPickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rjje3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="CoinPickup" to="." method="_on_coin_pickup_finished"]
