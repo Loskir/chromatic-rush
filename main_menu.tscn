@@ -1,24 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkgdgnckd66on"]
+[gd_scene load_steps=6 format=3 uid="uid://dkgdgnckd66on"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_ji1pi"]
+[ext_resource type="Texture2D" uid="uid://bm1wr70hd0anp" path="res://label.png" id="2_6cy3i"]
+[ext_resource type="Script" path="res://MainMenuBackground.gd" id="2_d366u"]
 
-[node name="MainMenu" type="Node2D"]
+[sub_resource type="Gradient" id="Gradient_qhyf8"]
+offsets = PackedFloat32Array(0.00645161, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.607843)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tib13"]
+gradient = SubResource("Gradient_qhyf8")
+fill_from = Vector2(0.506881, 1)
+fill_to = Vector2(0.543578, 0)
+
+[node name="Node" type="Node"]
 script = ExtResource("1_ji1pi")
 
-[node name="TitleLabel" type="Label" parent="."]
-texture_filter = 1
-offset_top = 293.0
-offset_right = 1152.0
-offset_bottom = 323.0
-theme_type_variation = &"HeaderLarge"
-text = "2D Platformer"
-horizontal_alignment = 1
+[node name="MainMenuBackground" type="ColorRect" parent="."]
+offset_right = 1155.0
+offset_bottom = 652.0
+color = Color(0, 0.388466, 0.17722, 1)
+script = ExtResource("2_d366u")
 
-[node name="Options" type="VFlowContainer" parent="."]
-offset_left = 504.0
-offset_top = 360.0
-offset_right = 649.0
-offset_bottom = 544.0
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1159.0
+offset_bottom = 653.0
+texture = SubResource("GradientTexture2D_tib13")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(561, 355)
+scale = Vector2(0.151083, 0.151083)
+texture = ExtResource("2_6cy3i")
+
+[node name="Options" type="HBoxContainer" parent="."]
+offset_top = 546.0
+offset_right = 1152.0
+offset_bottom = 577.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 1
 
 [node name="StartButton" type="Button" parent="Options"]
 layout_mode = 2
@@ -27,7 +47,7 @@ text = "Start"
 [node name="FullscreenButton" type="Button" parent="Options"]
 texture_filter = 1
 layout_mode = 2
-text = "Fullscreen Button"
+text = "Fullscreen"
 
 [node name="QuitButton" type="Button" parent="Options"]
 layout_mode = 2

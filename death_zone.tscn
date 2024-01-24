@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c336v1mrnyfm4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c7yjf"]
+distance = 2.13163e-14
+
+[node name="DeathZone" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_c7yjf")
