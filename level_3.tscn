@@ -1330,6 +1330,16 @@ sources/1 = SubResource("TileSetAtlasSource_vw32r")
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_yf3sc")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -4.0
+offset_top = -60.0
+offset_right = 1153.0
+offset_bottom = 657.0
+color = Color(0.4, 0.00392157, 0.752941, 1)
+
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 tile_set = SubResource("TileSet_chyjr")

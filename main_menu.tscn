@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkgdgnckd66on"]
+[gd_scene load_steps=7 format=3 uid="uid://dkgdgnckd66on"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_ji1pi"]
 [ext_resource type="Texture2D" uid="uid://bm1wr70hd0anp" path="res://label.png" id="2_6cy3i"]
 [ext_resource type="Script" path="res://MainMenuBackground.gd" id="2_d366u"]
+[ext_resource type="Theme" uid="uid://bt58xlaoig3fq" path="res://theme.tres" id="4_bpiod"]
 
 [sub_resource type="Gradient" id="Gradient_qhyf8"]
 offsets = PackedFloat32Array(0.00645161, 1)
@@ -41,16 +42,24 @@ grow_vertical = 2
 alignment = 1
 
 [node name="StartButton" type="Button" parent="Options"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("4_bpiod")
+theme_override_font_sizes/font_size = 50
 text = "Start"
 
 [node name="FullscreenButton" type="Button" parent="Options"]
 texture_filter = 1
 layout_mode = 2
+theme = ExtResource("4_bpiod")
+theme_override_font_sizes/font_size = 50
 text = "Fullscreen"
 
 [node name="QuitButton" type="Button" parent="Options"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("4_bpiod")
+theme_override_font_sizes/font_size = 50
 text = "Quit"
 
 [connection signal="pressed" from="Options/StartButton" to="." method="_on_start_button_pressed"]

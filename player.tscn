@@ -57,15 +57,15 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rbb4o"]
-radius = 4.0
-height = 10.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l57xw"]
+size = Vector2(8, 9)
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("1_uout0")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(2.08165e-12, -15)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
@@ -76,7 +76,8 @@ sprite_frames = SubResource("SpriteFrames_uai10")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_rbb4o")
+position = Vector2(-2.08165e-12, 0.5)
+shape = SubResource("RectangleShape2D_l57xw")
 
 [node name="JumpEffect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_4i3td")
