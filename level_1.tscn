@@ -1,12 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://slprv5ivckd1"]
+[gd_scene load_steps=18 format=3 uid="uid://slprv5ivckd1"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_cvvs5"]
+[ext_resource type="PackedScene" uid="uid://bmbml1q2pc1y0" path="res://background_gradient.tscn" id="2_5fi0l"]
 [ext_resource type="TileSet" uid="uid://cqx238ty6aude" path="res://tileset.tres" id="2_6suan"]
 [ext_resource type="PackedScene" uid="uid://dcs57nyl3hc0u" path="res://player.tscn" id="2_k4604"]
 [ext_resource type="PackedScene" uid="uid://cfnq4aiymbunu" path="res://door.tscn" id="4_wnebr"]
 [ext_resource type="PackedScene" uid="uid://cbccs1ic5yk2w" path="res://gem.tscn" id="5_g1pbh"]
 [ext_resource type="AudioStream" uid="uid://n6hmb1m6g2s8" path="res://actiontheme-v3.ogg" id="6_c4ni7"]
 [ext_resource type="PackedScene" uid="uid://c336v1mrnyfm4" path="res://death_zone.tscn" id="7_hwopo"]
+[ext_resource type="PackedScene" uid="uid://ph0d3oo14cfp" path="res://hud.tscn" id="7_lkdru"]
 [ext_resource type="Theme" uid="uid://bt58xlaoig3fq" path="res://theme.tres" id="8_sntvu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccmyl"]
@@ -33,8 +35,19 @@ size = Vector2(43.333, 6)
 [node name="Level1" type="Node"]
 script = ExtResource("1_cvvs5")
 
+[node name="BackgroundGradient" parent="." instance=ExtResource("2_5fi0l")]
+offset_left = 2.08165e-12
+offset_top = -500.0
+offset_right = 20000.0
+offset_bottom = 1020.0
+
+[node name="BackgroundGradient2" parent="." instance=ExtResource("2_5fi0l")]
+offset_top = -500.0
+offset_bottom = 1020.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_left = -4.0
@@ -43,7 +56,20 @@ offset_right = 1153.0
 offset_bottom = 657.0
 color = Color(0.0745098, 0.388235, 0, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="Instructions" type="Label" parent="."]
+texture_filter = 1
+offset_left = -39.0
+offset_top = -18.0
+offset_right = 236.0
+offset_bottom = 78.0
+theme = ExtResource("8_sntvu")
+theme_override_font_sizes/font_size = 25
+text = "Move: A/D or ←→ buttons
+[Tip: don't use stick]
+Jump: W, ↑, or (A)"
+vertical_alignment = 2
+
+[node name="AttemptsLabel" type="Label" parent="."]
 texture_filter = 1
 offset_left = -39.0
 offset_top = 13.0
@@ -51,8 +77,10 @@ offset_right = 236.0
 offset_bottom = 81.0
 theme = ExtResource("8_sntvu")
 theme_override_font_sizes/font_size = 25
-text = "Use A/S or ←→ to move
-Jump with W, ↑ or Spacebar"
+text = "Attempt 1
+"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -405,6 +433,9 @@ level = "res://level_2.tscn"
 [node name="Door3" parent="." instance=ExtResource("4_wnebr")]
 position = Vector2(-401, 360)
 level = "res://level_3.tscn"
+
+[node name="HUD" parent="." instance=ExtResource("7_lkdru")]
+current_level = "1"
 
 [connection signal="player_entered" from="Door" to="." method="_on_door_player_entered"]
 [connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]

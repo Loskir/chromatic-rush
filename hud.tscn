@@ -1,16 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://ph0d3oo14cfp"]
+[gd_scene load_steps=6 format=3 uid="uid://ph0d3oo14cfp"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_1nmlg"]
+[ext_resource type="Theme" uid="uid://bt58xlaoig3fq" path="res://theme.tres" id="2_8x0fl"]
+[ext_resource type="Texture2D" uid="uid://d22xdy02ndj6f" path="res://monochrome_tilemap_transparent.png" id="3_c3fdb"]
 
 [sub_resource type="GDScript" id="GDScript_cra40"]
+script/source = "extends Label
+
+func _ready():
+	self.text = \"Level \" + get_node('..').current_level
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olgo4"]
+atlas = ExtResource("3_c3fdb")
+region = Rect2(38, 87, 8, 12)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_1nmlg")
 
 [node name="CurrentLevel" type="Label" parent="."]
-offset_left = 18.0
-offset_top = 17.0
-offset_right = 68.0
-offset_bottom = 43.0
-text = "level 2"
+offset_left = 11.0
+offset_top = 2.0
+offset_right = 151.0
+offset_bottom = 55.0
+theme = ExtResource("2_8x0fl")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+text = "Level 2"
 script = SubResource("GDScript_cra40")
+
+[node name="CoinCouner" type="Label" parent="."]
+offset_left = 1128.0
+offset_top = 6.0
+offset_right = 1228.0
+offset_bottom = 59.0
+theme = ExtResource("2_8x0fl")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+text = "0
+"
+horizontal_alignment = 2
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1250, 32)
+scale = Vector2(2.75, 2.75)
+texture = SubResource("AtlasTexture_olgo4")

@@ -18,27 +18,25 @@ fill_to = Vector2(0.543578, 0)
 script = ExtResource("1_ji1pi")
 
 [node name="MainMenuBackground" type="ColorRect" parent="."]
-offset_right = 1155.0
-offset_bottom = 652.0
+offset_right = 1281.0
+offset_bottom = 800.0
 color = Color(0, 0.388466, 0.17722, 1)
 script = ExtResource("2_d366u")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1159.0
-offset_bottom = 653.0
+offset_right = 1282.0
+offset_bottom = 795.0
 texture = SubResource("GradientTexture2D_tib13")
 
 [node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(561, 355)
+position = Vector2(647, 354)
 scale = Vector2(0.151083, 0.151083)
 texture = ExtResource("2_6cy3i")
 
 [node name="Options" type="HBoxContainer" parent="."]
 offset_top = 546.0
-offset_right = 1152.0
-offset_bottom = 577.0
-grow_horizontal = 0
-grow_vertical = 2
+offset_right = 1278.0
+offset_bottom = 604.0
 alignment = 1
 
 [node name="StartButton" type="Button" parent="Options"]
